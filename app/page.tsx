@@ -38,18 +38,23 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main
+  className="min-h-screen text-white bg-cover bg-center bg-no-repeat"
+  style={{
+    backgroundImage: "url('/images/background.jpg')",
+  }}
+>
 
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-12">
 
         <div className="text-center md:text-left flex-1">
 
-          <h1 className="text-5xl md:text-6xl font-bold">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#67E8F9]">
             Kalyan Kumar Doppalapudi
           </h1>
 
-          <p className="text-2xl text-blue-400 mt-5">
+          <p className="text-2xl text-[#67E8F9] mt-5">
             Software Engineer | Full Stack Developer | Backend Engineer
           </p>
 
@@ -92,7 +97,7 @@ export default function Home() {
         <div>
 
           <Image
-            src="/profile.png"
+            src="/images/profile.png"
             alt="Profile"
             width={280}
             height={280}
