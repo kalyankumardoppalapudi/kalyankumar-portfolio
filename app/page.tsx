@@ -92,7 +92,7 @@ export default function Home() {
         <div>
 
           <Image
-            src="/profile.jpg"
+            src="/profile.png"
             alt="Profile"
             width={280}
             height={280}
