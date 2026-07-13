@@ -11,8 +11,11 @@ export default function Contact() {
       <div className="bg-black/40 border border-gray-800 rounded-2xl p-10 backdrop-blur-md">
 
         <p className="text-gray-300 text-lg leading-8">
-          I'm open to Software Engineer, Full Stack, Backend, and Cloud Engineering opportunities.
-          Feel free to reach out if you'd like to collaborate or discuss opportunities.
+          I am actively open to Software Engineer, Backend, Full Stack,
+          and Cloud Engineering opportunities. If you are looking for an engineer who treats
+          system architecture as a craft and builds with scalability in mind,
+          <br />
+          <span className="inline-block mt-2">Let's collaborate.</span>
         </p>
 
         {/* Email */}

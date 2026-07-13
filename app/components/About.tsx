@@ -11,24 +11,31 @@ export default function About() {
       <div className="bg-black/40 border border-gray-800 rounded-2xl p-8 md:p-10 backdrop-blur-md">
 
         <p className="text-gray-300 leading-8 text-lg">
-          I am a Software Engineer currently pursuing a Master’s degree in Computer Science
-          at the University at Buffalo. I specialize in building scalable backend systems,
-          full-stack web applications, and cloud-native solutions.
+          I am a Software Engineer and Master’s graduate in Computer Science from the
+          University at Buffalo, driven by a passion for engineering resilient,
+          cloud-native backend architectures. I specialize in bridging the gap between
+          large-scale data processing and responsive full-stack applications, building
+          systems that are scalable, reliable, and easy to maintain.
         </p>
 
         <br />
 
         <p className="text-gray-300 leading-8 text-lg">
-          I have experience working with technologies like React, Node.js, Python, AWS, Docker,
-          and databases such as PostgreSQL and MongoDB. I enjoy solving real-world problems
-          through clean, efficient, and production-ready software.
+          My engineering philosophy centers on measurable impact and scalable design.
+          I focus on developing clean, fault-tolerant, and production-ready software
+          using technologies such as Python, Node.js, React, AWS, Docker,
+          PostgreSQL, and MongoDB. I enjoy designing backend services, APIs,
+          and distributed systems that solve real-world engineering challenges.
         </p>
 
         <br />
 
         <p className="text-gray-300 leading-8 text-lg">
-          My focus is on backend engineering, distributed systems, and AI-powered applications.
-          I am continuously learning and improving my skills to build impactful systems.
+          Whether I am optimizing database architectures for high-throughput workloads,
+          designing cloud-native applications, or building AI-powered solutions, my
+          goal is to create intuitive, high-performance software from the ground up.
+          I am passionate about continuous learning and delivering systems that make a
+          measurable impact.
         </p>
 
       </div>

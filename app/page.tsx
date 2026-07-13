@@ -7,21 +7,27 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main
-      className="min-h-screen bg-cover bg-center bg-no-repeat text-white"
-      style={{
-        backgroundImage: "url('/images/background.jpg')",
-      }}
-    >
+    <>
+      {/* Fixed Background */}
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/background.jpg')",
+        }}
+      />
+
       {/* Dark Overlay */}
-      <div className="min-h-screen bg-black/60">
+      <div className="fixed inset-0 -z-10 bg-black/60" />
+
+      {/* Page Content */}
+      <main className="text-white">
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Contact />
         <Footer />
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
