@@ -5,9 +5,9 @@ export const projects: Project[] = [
     title: "Customer Churn Prediction",
     image: "/projects/churn.png",
     shortDescription:
-      "Machine learning model to predict customer churn using classification techniques.",
+      "Machine learning system that predicts customer churn using classification techniques.",
     fullDescription:
-      "Built an end-to-end machine learning pipeline to predict customer churn using Python. The project includes data preprocessing, feature engineering, model training, evaluation, and deployment as a REST API using Flask. Docker was used for containerization to ensure scalability and portability.",
+      "Built an end-to-end machine learning pipeline to predict customer churn using Python. The project includes data preprocessing, feature engineering, model training, evaluation, and deployment through a REST API using Flask. Docker was used for containerization to improve scalability, portability, and deployment consistency.",
     technologies: [
       "Python",
       "Pandas",
@@ -23,9 +23,9 @@ export const projects: Project[] = [
     title: "E-Learning Web Application",
     image: "/projects/elearning.png",
     shortDescription:
-      "Full-stack learning platform with authentication and course management.",
+      "Full-stack learning platform with authentication, course management, and responsive UI.",
     fullDescription:
-      "Developed a full-stack e-learning platform with user authentication, role-based access control, course creation, enrollment system, and responsive UI. Built using React for frontend and Node.js with Express for backend APIs.",
+      "Developed a full-stack e-learning platform with user authentication, role-based access control, course creation, enrollment management, and responsive user interfaces. Built RESTful backend APIs using Node.js and Express with MongoDB for scalable data management.",
     technologies: [
       "React",
       "Node.js",
@@ -40,9 +40,9 @@ export const projects: Project[] = [
     title: "Real-Time Object Detection",
     image: "/projects/object-detection.png",
     shortDescription:
-      "Live object detection and tracking using OpenCV and deep learning.",
+      "Real-time object detection and tracking using computer vision and deep learning.",
     fullDescription:
-      "Implemented a real-time object detection system using OpenCV and deep learning models. The system processes live video streams and detects multiple objects with optimized inference speed and accuracy.",
+      "Implemented a real-time object detection system using OpenCV and deep learning models. The application processes live video streams, detects multiple objects, and optimizes inference performance for improved accuracy and responsiveness.",
     technologies: [
       "Python",
       "OpenCV",

@@ -1,70 +1,81 @@
 import Image from "next/image";
-
-type Project = {
-  title: string;
-  image: string;
-  shortDescription: string;
-  fullDescription: string;
-  technologies: string[];
-  github: string;
-};
+import type { Project } from "../types/project";
 
 type Props = {
   project: Project;
   onViewDetails: (project: Project) => void;
 };
 
-export default function ProjectCard({ project, onViewDetails }: Props) {
+export default function ProjectCard({
+  project,
+  onViewDetails,
+}: Props) {
   return (
-    <div className="bg-black/40 border border-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition duration-300 backdrop-blur-md">
-
+    <div
+      onClick={() => onViewDetails(project)}
+      className="
+        group
+        cursor-pointer
+        overflow-hidden
+        rounded-2xl
+        border
+        border-gray-800
+        bg-black/40
+        backdrop-blur-md
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:border-[#67E8F9]/50
+        hover:shadow-2xl
+        hover:shadow-cyan-500/10
+      "
+    >
       {/* Project Image */}
-      <div className="relative w-full h-52">
+      <div className="relative h-56 w-full overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
       {/* Content */}
       <div className="p-6">
 
-        <h3 className="text-2xl font-semibold text-white">
+        <h3 className="text-2xl font-semibold text-white transition-colors group-hover:text-[#67E8F9]">
           {project.title}
         </h3>
 
-        <p className="text-gray-400 mt-3 leading-7">
+        <p className="mt-3 leading-7 text-gray-400">
           {project.shortDescription}
         </p>
 
-        {/* Technologies Preview */}
-        <div className="flex flex-wrap gap-2 mt-4">
+        {/* Technologies */}
+        <div className="mt-5 flex flex-wrap gap-2">
           {project.technologies.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="text-xs bg-gray-900 border border-gray-700 px-3 py-1 rounded-full text-gray-300"
+              className="rounded-full border border-gray-700 bg-gray-900 px-3 py-1 text-xs text-gray-300"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* Buttons */}
-        <div className="flex gap-3 mt-6">
+        {/* Footer */}
+        <div className="mt-7 flex items-center justify-between">
 
-          <button
-            onClick={() => onViewDetails(project)}
-            className="bg-[#67E8F9] text-black px-4 py-2 rounded-lg font-semibold hover:opacity-80 transition"
-          >
-            View Details
-          </button>
+          <span className="font-medium text-[#67E8F9] transition-transform duration-300 group-hover:translate-x-1">
+            Learn More →
+          </span>
 
           <a
             href={project.github}
             target="_blank"
-            className="border border-gray-600 px-4 py-2 rounded-lg text-sm hover:border-white transition"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="rounded-lg border border-gray-600 px-4 py-2 text-sm transition hover:border-[#67E8F9] hover:text-[#67E8F9]"
           >
             GitHub
           </a>

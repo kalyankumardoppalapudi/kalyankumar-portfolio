@@ -3,76 +3,67 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-
-type Project = {
-  title: string;
-  image: string;
-  shortDescription: string;
-  fullDescription: string;
-  technologies: string[];
-  github: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "Customer Churn Prediction",
-    image: "/projects/churn.png",
-    shortDescription: "Machine learning model for churn prediction.",
-    fullDescription:
-      "Built an end-to-end machine learning pipeline using Python, Pandas, NumPy, Scikit-Learn and Docker. The project performs data preprocessing, feature engineering, model training, evaluation, and exposes predictions through a REST API.",
-    technologies: ["Python", "Pandas", "NumPy", "Scikit-Learn", "Docker", "Flask"],
-    github: "https://github.com/yourgithub/churn-prediction",
-  },
-  {
-    title: "E-Learning Web Application",
-    image: "/projects/elearning.png",
-    shortDescription: "Full-stack learning platform with authentication.",
-    fullDescription:
-      "Developed a scalable e-learning platform with role-based authentication, course management, and responsive UI using modern web technologies.",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/yourgithub/elearning",
-  },
-  {
-    title: "Real-Time Object Detection",
-    image: "/projects/object-detection.png",
-    shortDescription: "Live object detection using OpenCV.",
-    fullDescription:
-      "Implemented real-time object detection and tracking using OpenCV and deep learning models for high-speed inference and accuracy.",
-    technologies: ["Python", "OpenCV", "Deep Learning"],
-    github: "https://github.com/yourgithub/object-detection",
-  },
-];
+import { projects } from "../data/projects";
+import type { Project } from "../types/project";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const selectedProject: Project | null =
+    selectedIndex !== null ? projects[selectedIndex] : null;
+
+  const openProject = (project: Project) => {
+    const index = projects.findIndex((p) => p.title === project.title);
+    if (index !== -1) {
+      setSelectedIndex(index);
+    }
+  };
+
+  const closeProject = () => {
+    setSelectedIndex(null);
+  };
+
+  const nextProject = () => {
+    if (selectedIndex === null) return;
+
+    setSelectedIndex((selectedIndex + 1) % projects.length);
+  };
+
+  const previousProject = () => {
+    if (selectedIndex === null) return;
+
+    setSelectedIndex(
+      (selectedIndex - 1 + projects.length) % projects.length
+    );
+  };
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">
-
-      {/* Title */}
+      {/* Section Title */}
       <h2 className="text-4xl font-bold text-center text-[#67E8F9] mb-12">
         Featured Projects
       </h2>
 
-      {/* Grid */}
+      {/* Projects Grid */}
       <div className="grid md:grid-cols-3 gap-8">
-
         {projects.map((project) => (
           <ProjectCard
             key={project.title}
             project={project}
-            onViewDetails={setSelectedProject}
+            onViewDetails={openProject}
           />
         ))}
-
       </div>
 
-      {/* Modal */}
+      {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        onClose={closeProject}
+        onNext={nextProject}
+        onPrevious={previousProject}
+        currentIndex={selectedIndex ?? 0}
+        totalProjects={projects.length}
       />
-
     </section>
   );
 }
